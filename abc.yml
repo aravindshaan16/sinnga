@@ -1,0 +1,10 @@
+--- #copy
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+          - name: copying
+            file: src=./shaan2 dest=/home/ansible
+

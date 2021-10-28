@@ -1,0 +1,46 @@
+--- # install java and jenkins
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+
+
+  tasks:
+          - name: installing java
+            yum:
+                    name: java
+                    state: installed
+
+          - name: downloading jenkins
+            get_url: 
+              url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+              dest: /etc/yum.repos.d/jenkins.repo
+          
+          - name: downloading key
+            rpm_key: 
+              state: present
+              key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+          - name: installing jenkins
+            yum:
+                    name: jenkins
+                    state: present
+
+          - name: starting service
+            service: 
+              name: jenkins
+              state: started
+              enabled: yes
+
+
+
+
+
+
+
+
+
+
+        
+
+          

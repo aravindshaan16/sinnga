@@ -1,0 +1,11 @@
+--- #create dir
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+          - name: copying
+            file: path=./dira state=directory
+
+

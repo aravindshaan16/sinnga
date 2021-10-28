@@ -1,0 +1,12 @@
+--- # install java and jenkins
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+
+
+  tasks:
+          - name: installing httpd
+            action: yum name=httpd state=present
+            
+

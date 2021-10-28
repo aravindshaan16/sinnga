@@ -1,0 +1,10 @@
+--- #copy
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+          - name: copying
+            copy: src=./satya dest=/home/ansible
+

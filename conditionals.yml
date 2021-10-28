@@ -1,0 +1,24 @@
+--- # conditionls yml
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+
+
+  tasks:
+          - name: installing java on RedHat
+            yum:
+                    name: java
+                    state: present
+            when: ansible_os_family=="RedHat"
+         
+     
+          - name: install default-jdk in Debian
+            apt:
+
+                    name: default-jdk
+                    state: present
+            when: ansible_os_family=="Debian"
+
+
+

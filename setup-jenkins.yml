@@ -1,0 +1,16 @@
+--- # multi s/w's
+- hosts: all
+  user: ansible
+  become: true 
+  connection: ssh
+
+
+  tasks:
+          - name: installing multi s/w's
+            yum: name='{{item}}' state=present
+            with_items:
+                    - java
+                    - httpd
+                    - tree
+                    - git
+                    - mysql  

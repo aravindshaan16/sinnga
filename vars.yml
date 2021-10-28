@@ -1,0 +1,14 @@
+--- # my var playbook
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+
+  vars:
+          pgname: tree
+
+  tasks:
+          - name: installing tree
+            action: yum name='{{pgname}}' state=present
+
+
